@@ -1,0 +1,14 @@
+package hanqqserver;
+
+public class test {
+
+	public static void main(String []args) {
+		test t=new test();
+		
+	}
+	public  test() {
+		String s="+9+8 ";
+		String a[]=s.split("+");
+		System.out.println(a[0]);
+	}
+}

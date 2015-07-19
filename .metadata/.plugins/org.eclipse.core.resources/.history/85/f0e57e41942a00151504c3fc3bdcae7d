@@ -1,0 +1,33 @@
+package QQview;
+
+import java.awt.TextField;
+
+import javax.swing.*;
+
+public class qqdialog extends JFrame{
+       JTextArea jta;
+       JTextField jtf;
+	   JPanel jp1;
+	   JButton jb;
+	   public static void main(String[] args) 
+	   {
+		   qqdialog diaQqdialog=new qqdialog("xiao");
+	   }
+	public qqdialog(String s)
+	{
+		super("与"+s+"交谈中");
+		jta=new JTextArea();
+		jtf=new JTextField(10);
+		jb=new JButton("发送");
+		jp1=new JPanel();
+		jp1.add(jtf);
+		jp1.add(jb);
+		
+		this.add(jta);
+		this.add(jp1,"South");
+		this.setSize(100, 300);
+		this.setVisible(true);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+	}
+}

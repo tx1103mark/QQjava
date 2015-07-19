@@ -1,0 +1,49 @@
+package server_model;
+import java.net.*;
+import java.io.*;
+import java.util.*;
+import qq_common.message;
+public class qq_server {
+
+	public qq_server()
+	{ 
+		
+		try {
+			ServerSocket ser=new ServerSocket(998);
+			System.out.print("服务器在998监听");
+			//服务器要一直监听连接
+			while(true)
+			{
+				Socket so=ser.accept();	
+				 boolean Passwo=true;
+			   while(Passwo){
+			    ObjectInputStream ob=new ObjectInputStream(so.getInputStream());
+			  message m=(message)ob.readObject();
+			 System.out.println(m.getUsr());
+			 System.out.println(m.getPasswd());
+			 
+		      ObjectOutputStream obo=new ObjectOutputStream(so.getOutputStream());
+			 message send=new message();
+			//验证用户名和密码//向客户端返回验证信息
+		      if(!m.getPasswd().equals("123456"))
+			 {
+				 System.out.println("密码错误重新输入");
+				 send.setFa(false);
+			 }
+		      else
+		       {
+		    	  Passwo=false;
+		    	  send.setFa(true);
+		     	 Thread th=new Thread(new serverThread(so));
+		     	 th.start();
+		        }
+		      obo.writeObject(send);
+		    } 
+		 }
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		 }
+		
+	}
+}

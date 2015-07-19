@@ -1,0 +1,52 @@
+package server_model;
+
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
+
+import qq_common.chat_message;
+import qq_common.message;
+
+public class serverThread extends Thread{
+     
+	
+	Socket s;
+	//ObjectOutputStream obo;
+	ObjectInputStream obi;
+	public serverThread(Socket s)
+	{
+		this.s=s;
+		System.out.println("这里出了问题");
+		 try {
+			obi = new ObjectInputStream(s.getInputStream());
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+			
+		while(true)
+		{	
+	      	try {
+				      chat_message m=(chat_message)obi.readObject();
+				       System.out.println(m.getReveiver());
+				       System.out.println(m.getStext());
+				      //取出接收线程，完成转发
+				 //     serverThread se=thread_manage.getServerThread(m.getReveiver());
+				  //    ObjectOutputStream obo=new  ObjectOutputStream(se.s.getOutputStream());
+				    //  obo.writeObject(m);
+		     	} 
+		
+			catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			
+			}
+		}
+	}
+}

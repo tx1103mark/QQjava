@@ -1,0 +1,21 @@
+package server_model;
+import java.net.*;
+import java.io.*;
+import java.util.*;
+public class qq_server {
+
+	public qq_server()
+	{
+		try {
+			ServerSocket ser=new ServerSocket(998);
+			System.out.print("·þÎñÆ÷ÔÚ998¼àÌý");
+			Socket so=ser.accept();
+			
+			BufferedReader bu=new BufferedReader(new InputStreamReader(so.getInputStream()));
+			  String st=bu.readLine();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+}

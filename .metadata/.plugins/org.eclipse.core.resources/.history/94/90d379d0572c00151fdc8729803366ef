@@ -1,0 +1,39 @@
+package tools;
+
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.net.Socket;
+
+import QQview.qqdialog;
+import qq_common.chat_message;
+
+public class client_thread extends Thread{
+
+	public Socket so;
+	public client_thread(Socket so)
+	{
+		this.so=so;
+	}
+	
+	public void run() 
+	{
+	
+		while(true)
+		{
+			ObjectInputStream obj;
+			try {
+				//读取服务器发过来的信息	
+				obj = new ObjectInputStream(so.getInputStream());
+				chat_message chat=(chat_message)obj.readObject();
+				//显示发过来的信息
+				qqdialog qdi=chat_hashmap.getchat(chat.getReveiver()+""+chat.getSender());
+				qdi.showmessage(chat.getStext());
+			     
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+	}
+}

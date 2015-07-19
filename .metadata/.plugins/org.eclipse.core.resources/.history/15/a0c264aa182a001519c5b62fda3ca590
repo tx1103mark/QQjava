@@ -1,0 +1,27 @@
+package QQview;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class Qqlogin extends JFrame
+{
+	  JLabel jl1;
+	  JPanel jp1;
+	  JButton jb1,jb2,jb3;
+      public static void main()
+      {
+    	  Qqlogin qq=new  Qqlogin();
+      }
+      public Qqlogin()
+      {
+    	  jl1=new JLabel(new ImageIcon("image\\tou.gif"));
+    	  
+    	  
+    	  this.add(jl1,"North");
+    	  this.setSize(400, 300);
+      }
+	
+}

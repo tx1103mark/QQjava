@@ -1,0 +1,10 @@
+package server_view;
+
+public class se_view {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

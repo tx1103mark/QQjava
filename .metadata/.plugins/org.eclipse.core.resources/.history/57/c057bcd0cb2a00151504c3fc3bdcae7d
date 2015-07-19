@@ -1,0 +1,10 @@
+package client_model;
+//连接服务器进行用户名和密码的认证
+public class client_serve {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

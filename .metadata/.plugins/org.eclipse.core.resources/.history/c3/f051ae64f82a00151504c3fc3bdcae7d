@@ -1,0 +1,27 @@
+package qq_common;
+
+public class chat_message {
+
+	String sender;
+	String reveiver;
+	String stext;
+	public String getSender() {
+		return sender;
+	}
+	public void setSender(String sender) {
+		this.sender = sender;
+	}
+	public String getReveiver() {
+		return reveiver;
+	}
+	public void setReveiver(String reveiver) {
+		this.reveiver = reveiver;
+	}
+	public String getStext() {
+		return stext;
+	}
+	public void setStext(String stext) {
+		this.stext = stext;
+	}
+	
+}

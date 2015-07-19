@@ -1,0 +1,17 @@
+package tools;
+
+import java.util.HashMap;
+
+import QQview.qqdialog;
+
+public class chat_hashmap {
+         HashMap hm=new HashMap<String , qqdialog>();
+         public void addchat(String s,qqdialog qd)
+         {
+        	 hm.put(s, qd);
+         }
+         public qqdialog getchat(String id) 
+         {
+			return (qqdialog)hm.get(id);
+		}
+}

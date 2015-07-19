@@ -1,0 +1,13 @@
+package qq_common;
+
+import java.io.Serializable;
+
+public class message implements Serializable{
+                String passwd;
+                String usr;
+               public message(String usr, String passwd)
+               {
+            	   this.usr=usr;
+            	   this.passwd=passwd;
+               }            
+}

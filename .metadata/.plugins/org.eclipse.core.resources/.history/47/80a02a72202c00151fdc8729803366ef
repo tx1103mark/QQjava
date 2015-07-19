@@ -1,0 +1,36 @@
+package tools;
+
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.net.Socket;
+
+import qq_common.chat_message;
+
+public class client_thread extends Thread{
+
+	Socket so;
+	public client_thread(Socket so)
+	{
+		this.so=so;
+	}
+	
+	public void run() 
+	{
+	
+		while(true)
+		{
+			ObjectInputStream obj;
+			try {
+				//不停读取服务器发过来的信息	
+				obj = new ObjectInputStream(so.getInputStream());
+				chat_message chat=(chat_message)obj.readObject();
+				//显示发过来的信息
+				System.out.println(chat.getStext());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+	}
+}

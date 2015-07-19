@@ -1,0 +1,25 @@
+package server_model;
+import java.net.*;
+import java.io.*;
+import java.util.*;
+import qq_common.message;
+public class qq_server {
+
+	public qq_server()
+	{
+		try {
+			ServerSocket ser=new ServerSocket(998);
+			System.out.print("服务器在998监听");
+			Socket so=ser.accept();
+			
+			ObjectInputStream ob=new ObjectInputStream(so.getInputStream());
+             message m=(message)ob.readObject();
+			 System.out.println(m.getUsr()+m.getPasswd());
+			 if(m.getPasswd()!="123456")
+				 System.out.println("密码错误重新输入");
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+}

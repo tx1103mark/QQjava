@@ -1,0 +1,26 @@
+package server_model;
+import java.net.*;
+import java.io.*;
+import java.util.*;
+import qq_common.message;
+public class qq_server {
+
+	public qq_server()
+	{
+		try {
+			ServerSocket ser=new ServerSocket(998);
+			System.out.print("·þÎñÆ÷ÔÚ998¼àÌý");
+			Socket so=ser.accept();
+			
+			ObjectInputStream ob=new ObjectInputStream(so.getInputStream());
+             message m=(message)ob.readObject();
+			 System.out.println(m.getUsr()+m.getPasswd());
+			 
+			 so.close();
+			 ser.close();
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+}

@@ -1,0 +1,17 @@
+package server_model;
+
+import java.util.HashMap;
+
+public class thread_manage {
+
+	
+	public static HashMap tm=new HashMap<String, serverThread>();
+	public static void addthread(String uid,serverThread se)
+	{
+		tm.put(uid, se);
+	}
+	public static serverThread getServerThread(String uid) 
+	{
+		return (serverThread)tm.get(uid);
+	}
+}

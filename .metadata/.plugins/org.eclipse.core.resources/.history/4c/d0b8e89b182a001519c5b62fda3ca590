@@ -1,0 +1,14 @@
+package QQview;
+
+public class Qqlogin
+{
+      public static void main()
+      {
+    	  
+      }
+      public Qqlogin()
+      {
+    	  
+      }
+	
+}

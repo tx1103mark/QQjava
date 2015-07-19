@@ -1,0 +1,32 @@
+package QQview;
+
+import javax.swing.*;
+public class Qqlogin extends JFrame
+{
+	  JLabel jl1;
+	  JPanel jp1;
+	  JButton jb1,jb2,jb3;
+      public static void main(String []args)
+      {
+    	  Qqlogin qq=new  Qqlogin();
+      }
+      public Qqlogin()
+      {
+    	  jl1=new JLabel(new ImageIcon("image\\tou.gif"));
+    	  
+    	  jb1=new JButton(new ImageIcon("image\\denglu.gif"));
+    	  jb2=new JButton(new ImageIcon("image\\quxiao.gif"));
+    	  jb3=new JButton(new ImageIcon("image\\clear.gif"));
+    	  jp1=new JPanel();
+    	  jp1.add(jb1);
+    	  jp1.add(jb2);
+    	  jp1.add(jb3);
+    	  
+    	  this.add(jl1,"North");
+    	  this.add(jp1,"South");
+    	  this.setSize(350, 300);
+    	  this.setVisible(true);
+    	  this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+      }
+	
+}

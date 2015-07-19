@@ -1,0 +1,17 @@
+package hanqqserver;
+
+public class test {
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String string = "A B C";
+		String [] s = string.split(" ");
+		for(int i=0;i<s.length;i++){
+			System.out.println(s[i]);
+		}
+	}
+
+}
+

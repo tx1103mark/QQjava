@@ -1,0 +1,71 @@
+package QQview;
+
+import java.awt.*;
+import java.awt.event.*;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
+
+import javax.swing.*;
+
+import qq_common.*;
+import client_model.client_serve;
+public class qqdialog extends JFrame implements ActionListener{
+       JTextArea jta;
+       JTextField jtf;
+	   JPanel jp1;
+	   JButton jb;
+	   ObjectOutputStream ob ;
+	   //聊天对象
+	   String s;
+	public qqdialog(String s)
+	{
+		super("与"+s+"交谈中");
+		this.s=s;
+		jta=new JTextArea();
+		jtf=new JTextField(10);
+		jtf.addActionListener(this);
+		jb=new JButton("发送");
+		jb.addActionListener(this);
+		jp1=new JPanel();
+		jp1.add(jtf);
+		jp1.add(jb);
+		
+		this.add(jta);
+		this.add(jp1,"South");
+		this.setSize(300, 300);
+		this.setIconImage(new ImageIcon("image\\qq.gif").getImage());
+		this.setVisible(true);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		
+		//获得登陆socket
+		
+		try {
+			 ob = new ObjectOutputStream(client_serve.so.getOutputStream());
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		
+		
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		chat_message chat;
+		if(e.getSource()==jb)
+		{
+			chat = new chat_message();
+			chat.setSender("郑俊");
+			chat.setReveiver(s);
+			chat.setStext(jtf.getText());
+			try {
+				ob.writeObject(chat);
+				System.out.print("zenme");
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+		}
+	}
+}

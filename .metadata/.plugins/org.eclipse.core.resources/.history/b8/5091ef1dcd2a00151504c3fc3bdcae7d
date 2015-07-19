@@ -1,0 +1,11 @@
+package qq_common;
+
+public class message {
+                String passwd;
+                String usr;
+               public message(String usr, String passwd)
+               {
+            	   this.usr=usr;
+            	   this.passwd=passwd;
+               }            
+}

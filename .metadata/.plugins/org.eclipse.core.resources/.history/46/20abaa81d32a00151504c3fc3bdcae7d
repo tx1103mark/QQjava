@@ -1,0 +1,28 @@
+package qq_common;
+
+import java.io.Serializable;
+
+public class message implements Serializable{
+                String passwd;
+                String usr;
+                public boolean isFa() {
+					return fa;
+				}
+				public void setFa(boolean fa) {
+					this.fa = fa;
+				}
+				boolean fa;
+                public String getPasswd() {
+					return passwd;
+				}
+				public void setPasswd(String passwd) {
+					this.passwd = passwd;
+				}
+				public String getUsr() {
+					return usr;
+				}
+				public void setUsr(String usr) {
+					this.usr = usr;
+				}
+	         
+}
